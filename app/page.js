@@ -1,33 +1,33 @@
-'use client'
+'use client';
 
-import { useEffect, useState } from "react"
-import Image from "next/image"
+import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function Home() {
-  const [articles, setArticles] = useState([])
+  const [articles, setArticles] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/getdata')
-        if (!response.ok) throw new Error('Failed to fetch data')
+        const response = await fetch('/api/getdata');
+        if (!response.ok) throw new Error('Failed to fetch data');
         
-        const data = await response.json()
-        setArticles(data)
+        const data = await response.json();
+        setArticles(data);
       } catch (error) {
-        console.error('Error fetching data:', error)
+        console.error('Error fetching data:', error);
       }
-    }
+    };
 
-    fetchData()
-  }, [])
+    fetchData();
+  }, []);
 
   return (
     <div className="min-h-screen bg-black text-white font-sans">
       <header className="bg-gradient-to-r from-gray-900 to-gray-800 py-6 px-4 sticky top-0 z-50 shadow-lg">
         <div className="container mx-auto flex justify-between items-center">
           <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
-            MARMIK NEWS
+            MARMIK MEWADA
           </h1>
           <nav>
             <ul className="flex space-x-6">
@@ -79,7 +79,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
               <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
-                MARMIK'S NEWS NETWORK
+                MARMIK&apos;S NEWS NETWORK
               </h3>
               <p className="mt-2 text-gray-400">Bringing you the latest news, 24/7</p>
             </div>
@@ -113,5 +113,5 @@ export default function Home() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
